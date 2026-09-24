@@ -30,12 +30,13 @@ rule multiqc:
         expand("results/bwa_map/{sample}.F2316.bam.stat", sample=config["sample_ids"]),
         # using id as wildcard to match all samples; iinput end with .fq.gz
     output:
-        html = "results/multiqc/multiqc.html",
-        log = "results/multiqc/multiqc.log"
+        html="results/multiqc/multiqc_report.html"
+    log:
+        "results/multiqc/multiqc.log"
     params:
         binpath= config["binpath"],
     shell:
         """
         # Run multiQC and keep the html report
-        {params.binpath}multiqc  {input} -o ./results/multiqc/ 2> {output.log}
+        {params.binpath}multiqc  {input} -o ./results/multiqc/ 2> {log}
         """

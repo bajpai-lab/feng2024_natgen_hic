@@ -1,2 +1,2 @@
-snakemake -s Snakefile  --cores all --use-conda --latency-wait 60
+snakemake -s Snakefile  --cores all --use-conda --latency-wait 60 --rerun-incomplete
 

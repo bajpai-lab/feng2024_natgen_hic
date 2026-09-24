@@ -2,7 +2,7 @@
 # generate min cool files.
 rule bin_cooler:
     input:
-        pair1=rules.pair.output,
+        pair1=rules.pair.output.pair,
     output:
         cool="results/cooler/{sample}_uniq.cool",
     log:
